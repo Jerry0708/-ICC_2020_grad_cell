@@ -1,0 +1,57 @@
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : SME
+Version: R-2020.09
+Date   : Wed Aug 17 11:01:48 2022
+****************************************
+
+Operating Conditions: slow   Library: slow
+Wire Load Model Mode: top
+
+  Startpoint: chardata[5]
+              (input port clocked by clk)
+  Endpoint: cnt_space_reg[2]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  SME                tsmc13_wl10           slow
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock clk (fall edge)                   10.00      10.00
+  clock network delay (ideal)              0.50      10.50
+  input external delay                     0.00      10.50 r
+  chardata[5] (in)                         0.00      10.50 r
+  U4657/Y (CLKINVX1)                       0.47      10.97 f
+  U2111/Y (CLKBUFX3)                       0.94      11.91 f
+  U1930/Y (CLKBUFX3)                       0.80      12.71 f
+  U1238/Y (NOR2XL)                         0.57      13.29 r
+  U1237/Y (NAND4X2)                        0.60      13.88 f
+  U1338/Y (NAND2XL)                        0.81      14.69 r
+  U4627/Y (OAI21XL)                        0.49      15.18 f
+  U4626/Y (AOI2BB1X1)                      0.29      15.47 r
+  U4625/Y (OAI22XL)                        0.25      15.72 f
+  cnt_space_reg[2]/D (DFFRX1)              0.00      15.72 f
+  data arrival time                                  15.72
+
+  clock clk (rise edge)                   20.00      20.00
+  clock network delay (ideal)              0.50      20.50
+  clock uncertainty                       -0.10      20.40
+  cnt_space_reg[2]/CK (DFFRX1)             0.00      20.40 r
+  library setup time                      -0.27      20.13
+  data required time                                 20.13
+  -----------------------------------------------------------
+  data required time                                 20.13
+  data arrival time                                 -15.72
+  -----------------------------------------------------------
+  slack (MET)                                         4.40
+
+
+1
